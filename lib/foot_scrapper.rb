@@ -54,16 +54,16 @@ def perform()
     url = "https://www.ligue1.fr/classement?matchDay=#{c.to_s}&seasonId=2021-2022"
     page = Nokogiri::HTML(URI(url).open())
 
-    array_position = ["Position"]
-    array_club = ["Club"]
-    array_points= ["Points"]
-    array_joues= ["Joués"]
-    array_gagnes= ["Gagnés"]
-    array_nuls= ["Nuls"]
-    array_perdus= ["Perdus"]
-    array_buts_pour= ["Buts_pour"]
-    array_buts_contre= ["Buts_contre"]
-    array_diff= ["Diff"]
+    array_position = ["POSITION"]
+    array_club = ["CLUB"]
+    array_points= ["POINTS"]
+    array_joues= ["JOURNEE"]
+    array_gagnes= ["GAGNES"]
+    array_nuls= ["NULS"]
+    array_perdus= ["PERDUS"]
+    array_buts_pour= ["BUTS_POUR"]
+    array_buts_contre= ["BUTS_CONTRE"]
+    array_diff= ["DIFF"]
     table = [array_position, array_club, array_points, array_joues, array_gagnes, array_nuls, array_perdus, array_buts_pour,array_buts_contre, array_diff]
 
     results = scrap_page(table,page)
