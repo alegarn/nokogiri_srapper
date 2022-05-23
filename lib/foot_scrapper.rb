@@ -32,14 +32,16 @@ def scrap_page(table,page)
   return table
 end
 
-def new_csv(table,c)
+# new_csv(table,c)
+def new_csv(table)
 
   columns = table.transpose
   l = 0
-  report = "journee_#{c}"
+  report = "Match_38_journees" #report = "journee_#{c}"
 
   CSV.open("day_csv/#{report}.csv", "w") do |csv|
-    while l < 21
+    # while l < 21
+    while l < ((20*38)+1)
       csv << columns[l]
       l = l + 1
     end
@@ -50,27 +52,29 @@ end
 def perform()
   c = 1
 
+  array_position = ["POSITION"]
+  array_club = ["CLUB"]
+  array_points= ["POINTS"]
+  array_joues= ["JOURNEE"]
+  array_gagnes= ["GAGNES"]
+  array_nuls= ["NULS"]
+  array_perdus= ["PERDUS"]
+  array_buts_pour= ["BUTS_POUR"]
+  array_buts_contre= ["BUTS_CONTRE"]
+  array_diff= ["DIFF"]
+  table = [array_position, array_club, array_points, array_joues, array_gagnes, array_nuls, array_perdus, array_buts_pour,array_buts_contre, array_diff]
+
   while c < 39
     url = "https://www.ligue1.fr/classement?matchDay=#{c.to_s}&seasonId=2021-2022"
     page = Nokogiri::HTML(URI(url).open())
-
-    array_position = ["POSITION"]
-    array_club = ["CLUB"]
-    array_points= ["POINTS"]
-    array_joues= ["JOURNEE"]
-    array_gagnes= ["GAGNES"]
-    array_nuls= ["NULS"]
-    array_perdus= ["PERDUS"]
-    array_buts_pour= ["BUTS_POUR"]
-    array_buts_contre= ["BUTS_CONTRE"]
-    array_diff= ["DIFF"]
-    table = [array_position, array_club, array_points, array_joues, array_gagnes, array_nuls, array_perdus, array_buts_pour,array_buts_contre, array_diff]
+    # arrays
 
     results = scrap_page(table,page)
-    new_csv(results,c)
+    # new_csv(results,c)
+
     c = c + 1
   end
-
+  new_csv(results)
 end
 
 perform()
