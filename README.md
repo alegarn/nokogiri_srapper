@@ -15,3 +15,5 @@ Data scrapping Ligue 1 days results.
 
 - Basic scrapper
 - You'll end up having L1 results that you can process directly (csv files) 
+
+The finished code is here: https://github.com/Donolef/Ligue_01
