@@ -6,7 +6,7 @@ Data scrapping Ligue 1 days results.
 
 ### How to use it (Terminal)
 
-(You need bundler, python librairies installed)
+(You need bundler, ruby librairies installed)
 - Terminal: '$ mkdir lib/day_csv' (new file, should contains the program results)
 - In your terminal: '$ bundle install'
 - $ ruby lib/foot_scrapper.rb
